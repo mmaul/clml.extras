@@ -1,0 +1,17 @@
+#+INFOJS_OPT: view:overview toc:t
+#+OPTIONS: toc:nil
+* CL Machine-Learning Extras
+
+CL Machine-Learning Extras is a repository to extensions to the CLML
+(CL Machine Learning Library). This repository will contain extensions
+that may not organically fit the CLML distribution and experimental
+extensions that may later be incorporated into the CLML distribution.
+
+
+** Author(s):   
+  +  Mike Maul
+
+** [#B] Installation
+#+INCLUDE: "./docs/INSTALL.org" :minlevel 2
+
+#+INCLUDE: "./docs/USING.org" :minlevel 2

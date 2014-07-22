@@ -1,0 +1,14 @@
+   
+** Usage
+This library contains the following extensions:
+  +clml.ana : Compatibility layer between CLML and CL-ANA
+    CL-ANA is blah bla and provides complimentary functionality to
+    CLML. of particular not is the lispy gnuplot wrapper and
+    histograms.
+
+*** CLML.ANA
+
+Below demonstrates using CL-ANA's gluplot with CLML datasets and using
+data from CLML datasets to feed CL-ANA's histograms.
+#+INCLUDE: "./sample/cl-ana-plotting.org"
+

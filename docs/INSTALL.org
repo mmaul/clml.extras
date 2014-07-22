@@ -1,0 +1,23 @@
+
+** Installation Notes
+*** Obtaining code
+Code can be obtained by one of the following methods:
+  + Clone this repository with:
+#+BEGIN_SRC 
+  git clone https://github.com/mmaul/clml.extras.git
+#+END_SRC
+Or download zip archive at
+  #+BEGIN_SRC 
+  https://github.com/mmaul/clml.extras/archive/master.zip
+#+END_SRC
+
+*** Installing
+**** For Quicklisp ****
+1. Place code in ~~/quicklisp/local-projects~
+2. Start LISP and enter ~(ql:quickload :clml.extras)~ 
+
+**** For ASDF3 only (Non quicklisp users)
+1. Place in a location on your ASDF search path path such as ~~/common-lisp~
+2. Start LISP and enter ~(asdf:load-system :clml.extras)~
+
+
