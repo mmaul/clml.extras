@@ -1,4 +1,4 @@
-(in-packge clml.ana.plotting)
+(in-package :clml.ana.plotting)
 
 (in-package :plotting)
 (defmethod line ((vector2d simple-vector) &rest line-kw-args)

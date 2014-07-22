@@ -8,10 +8,12 @@
 (asdf:defsystem :clml.ana
                 :pathname "src/"
                 :serial t
-                :depends-on (:cl-ana
+                :depends-on (:clml
+                             :cl-ana
                              :hjs
+                             :clml.ana.package
                              )
                 :components (
                              (:file "package")
-                             (:file "plotting.lisp")
+                             (:file "plotting")
                              ))

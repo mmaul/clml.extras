@@ -1,5 +1,5 @@
 (defpackage :clml.ana.plotting
   (:use :cl
-        :plotting
-        )
+        :plotting)
+  (:documentation "Interoperability for CL-ANA plotting")
   )
