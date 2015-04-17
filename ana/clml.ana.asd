@@ -8,9 +8,9 @@
 (asdf:defsystem :clml.ana
                 :pathname "src/"
                 :serial t
-                :depends-on (:clml
+                :depends-on (
                              :cl-ana
-                             :hjs
+                             :clml.hjs
                              :clml.ana.package
                              )
                 :components (
