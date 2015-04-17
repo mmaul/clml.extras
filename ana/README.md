@@ -14,7 +14,7 @@
 -   Uses:
     common-lisp, plotting
 -   Used by:
-    None.
+    clml.extras
 
 ## Description
 

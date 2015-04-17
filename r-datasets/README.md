@@ -14,7 +14,7 @@
 -   Uses:
     common-lisp, drakma, clml.utility.data, clml.hjs.read-data
 -   Used by:
-    None.
+    clml.extras
 
 ## Description
 
@@ -27,21 +27,46 @@ More information on these datasets can be found at <http://vincentarelbundock.gi
 Because type information is not included it may be necessary to provide a type specification
 for the columns in the csv file.
 
-## Example
+    (ql:quickload :clml.r-datasets)
+    (defparameter dd (get-r-dataset-directory))
+    (inventory dd)
+      Package                   Item                      Title                     
+      ------------------------- ------------------------- ------------------------- 
+      datasets                  AirPassengers             Monthly Airline Passenger Numbers 1949-1960 
+      datasets                  BJsales                   Sales Data with Leading Indicator 
+      datasets                  BOD                       Biochemical Oxygen Demand 
+    (dataset-documentation  dd  "datasets" "BOD")
+      R: Biochemical Oxygen Demand
+      BODR Documentation
+      Biochemical Oxygen Demand
+        Description
+          The BOD data frame has 6 rows and 2 columns giving the
+          biochemical oxygen demand versus time in an evaluation of water
+          quality.
+          ...
+    
+    (get-dataset dd "datasets" "BOD")
+      #<UNSPECIALIZED-DATASET >
+      DIMENSIONS:  | Time | demand
+      TYPES:      UNKNOWN | UNKNOWN | UNKNOWN
+      NUMBER OF DIMENSIONS: 3
+      DATA POINTS: 6 POINTS
 
-\#+BEGIN<sub>SRC</sub> lisp
-CL-USER> (ql:quickload :clml.r-datasets)
-R-DATASETS> (defparameter dd (get-r-dataset-directory))
-R-DATASETS> (inventory dd)
-R-DATASETS> (inventory dd)
-Package                   Item                      Title                     
--&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; -&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; -&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; 
-datasets                  AirPassengers             Monthly Airline Passenger Numbers 1949-1960 
-datasets                  BJsales                   Sales Data with Leading Indicator 
-datasets                  BOD                       Biochemical Oxygen Demand 
-&#x2026;
+## Other uses
 
-R-DATASETS>(dataset-documentation dd 
+This package can also be used as a tool for sharing or distributing bundles of datasets.
+To do this a csv file which provides the directory of data sets must be made availabe
+via a URL. The csv file MUST comply to the following format:
+A header with following collumns
+-   Package : package
+-   Item    : dataset name
+-   Title   : Brief Description of dataset
+-   csv     : URL where dataset is available
+-   doc     : URL with documentation describing the dataset
+
+The the contents of the file pointed to by doc `doc` can be plaintext of HTML.
+If it is HTML the HTML tags will be stripped and what ever whitespace formatting will
+be used. This field can be empty however the `inventory` method will be un available if it is
 
 ## External Symbols
 
@@ -49,7 +74,7 @@ R-DATASETS>(dataset-documentation dd
 
 ---
 
-#### External Function: `dataset-documentation`
+#### Inherited Function: `dataset-documentation`
 
 ##### Syntax
 
@@ -66,7 +91,7 @@ Outputs documention for the R dataset to the specified stream if no stream suppl
 
 ---
 
-#### External Function: `get-dataset`
+#### Inherited Function: `get-dataset`
 
 ##### Syntax
 
@@ -99,18 +124,18 @@ cause the value to be represented by the keyword :na in the dataset. For R datas
 not necessary to set `csv-header-p` `missing-values-check`.
 
 Example:
-\\#+BEGIN<sub>SRC</sub> lisp
-; grab the data and see what the types should be
-CL-USER> (head-points (get-dataset dd "datasets" "BOD"))
-\\#(#("1" "1" "8.3") #("2" "2" "10.3") #("3" "3" "19") #("4" "4" "16")
-  #("5" "5" "15.6") #("6" "7" "19.8"))
-; Looks like '(integer integer double-float) will do
-CL-USER> (head-points (get-dataset dd "datasets" "BOD" :csv-type-spec '(integer integer double-float)))
-\\#(#(1 1 8.3) #(2 2 10.3) #(3 3 19.0) #(4 4 16.0) #(5 5 15.6))
+
+    ; grab the data and see what the types should be
+    CL-USER> (head-points (get-dataset dd "datasets" "BOD"))
+    #(#("1" "1" "8.3") #("2" "2" "10.3") #("3" "3" "19") #("4" "4" "16")
+      #("5" "5" "15.6") #("6" "7" "19.8"))
+    ; Looks like '(integer integer double-float) will do
+    CL-USER> (head-points (get-dataset dd "datasets" "BOD" :csv-type-spec '(integer integer double-float)))
+    #(#(1 1 8.3) #(2 2 10.3) #(3 3 19.0) #(4 4 16.0) #(5 5 15.6))
 
 ---
 
-#### External Function: `get-r-dataset-directory`
+#### Inherited Function: `get-r-dataset-directory`
 
 ##### Syntax
 
@@ -124,7 +149,7 @@ CL-USER> (head-points (get-dataset dd "datasets" "BOD" :csv-type-spec '(integer 
 
 ---
 
-#### External Function: `inventory`
+#### Inherited Function: `inventory`
 
 ##### Syntax
 

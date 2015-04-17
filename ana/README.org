@@ -1,2 +1,2 @@
 
-#+INCLUDE: "/mnt/sda5/home/mmaul/quicklisp/local-projects/clml.extras/docs/api/CLML.ANA.PLOTTING.org" :minlevel 1
+#+INCLUDE: "../docs/api/CLML.ANA.PLOTTING.org" :minlevel 1

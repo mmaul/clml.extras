@@ -56,6 +56,7 @@ cause the value to be represented by the keyword :na in the dataset. For R datas
 not necessary to set ~csv-header-p~ ~missing-values-check~.
 
 Example:
+
 #+BEGIN_SRC lisp
 ; grab the data and see what the types should be
 CL-USER> (head-points (get-dataset dd \"datasets\" \"BOD\"))
@@ -64,6 +65,7 @@ CL-USER> (head-points (get-dataset dd \"datasets\" \"BOD\"))
 ; Looks like '(integer integer double-float) will do
 CL-USER> (head-points (get-dataset dd \"datasets\" \"BOD\" :csv-type-spec '(integer integer double-float)))
 #(#(1 1 8.3) #(2 2 10.3) #(3 3 19.0) #(4 4 16.0) #(5 5 15.6))
+#+END_SRC
 "))
 (defmethod get-dataset ((dataset-directory dataset-directory) package name
                         &key

@@ -2,10 +2,11 @@
 #+OPTIONS: toc:nil
 * CL Machine-Learning Extras
 
-CL Machine-Learning Extras is a repository to extensions to the CLML
-(CL Machine Learning Library). This repository will contain extensions
-that may not organically fit the CLML distribution and experimental
-extensions that may later be incorporated into the CLML distribution.
+CLML. EXTRAS is a system to extensions to the CLML
+(CL Machine Learning Library). This repository contains extensions
+to CLML and interfaces to other systems.
+
+The CLML library can be found at [[https://github.com/mmaul/clml][CLML]] github repository.
 
 
 ** Author(s):   

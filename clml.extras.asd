@@ -9,6 +9,7 @@
 
 
 (let ((*read-default-float-format* 'double-float))
+  
   (asdf:defsystem #:clml.extras
     :serial t
     :description "Enhancments to the base CLML (Common Lisp Machine Learming)"
@@ -19,7 +20,15 @@
     :depends-on (
                  :clml.ana
                  :clml.r-datasets
+                 :clml.extras.package
                  )
-    ))
+    )
+
+  (asdf:defsystem :clml.extras.package
+                :serial t
+                :components (
+                             (:file "package")))
+
+  )
 
 
