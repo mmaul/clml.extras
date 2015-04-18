@@ -33,37 +33,56 @@
 <li><a href="#sec-2-2">2.2. External Symbols</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. Package: <code>clml.r-datasets</code></a>
+<li><a href="#sec-3">3. Package: <code>clml.cl-plplot</code></a>
 <ul>
 <li><a href="#sec-3-1">3.1. Description</a></li>
-<li><a href="#sec-3-2">3.2. Description</a></li>
-<li><a href="#sec-3-3">3.3. Other uses</a></li>
-<li><a href="#sec-3-4">3.4. External Symbols</a>
+<li><a href="#sec-3-2">3.2. External Symbols</a>
 <ul>
-<li><a href="#sec-3-4-1">3.4.1. External Functions</a>
+<li><a href="#sec-3-2-1">3.2.1. External Functions</a>
 <ul>
-<li><a href="#sec-3-4-1-1">3.4.1.1. Inherited Function: <code>dataset-documentation</code></a>
+<li><a href="#sec-3-2-1-1">3.2.1.1. Inherited Function: <code>boxplot</code></a>
 <ul>
-<li><a href="#sec-3-4-1-1-1">3.4.1.1.1. Syntax</a></li>
-<li><a href="#sec-3-4-1-1-2">3.4.1.1.2. Description</a></li>
+<li><a href="#sec-3-2-1-1-1">3.2.1.1.1. Syntax</a></li>
+<li><a href="#sec-3-2-1-1-2">3.2.1.1.2. Description</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-4-1-2">3.4.1.2. Inherited Function: <code>get-dataset</code></a>
-<ul>
-<li><a href="#sec-3-4-1-2-1">3.4.1.2.1. Syntax</a></li>
-<li><a href="#sec-3-4-1-2-2">3.4.1.2.2. Description</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-4-1-3">3.4.1.3. Inherited Function: <code>get-r-dataset-directory</code></a>
-<ul>
-<li><a href="#sec-3-4-1-3-1">3.4.1.3.1. Syntax</a></li>
-<li><a href="#sec-3-4-1-3-2">3.4.1.3.2. Description</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-4-1-4">3.4.1.4. Inherited Function: <code>inventory</code></a>
+</ul>
+</li>
+<li><a href="#sec-4">4. Package: <code>clml.r-datasets</code></a>
 <ul>
-<li><a href="#sec-3-4-1-4-1">3.4.1.4.1. Syntax</a></li>
-<li><a href="#sec-3-4-1-4-2">3.4.1.4.2. Description</a></li>
+<li><a href="#sec-4-1">4.1. Description</a></li>
+<li><a href="#sec-4-2">4.2. Description</a></li>
+<li><a href="#sec-4-3">4.3. Other uses</a></li>
+<li><a href="#sec-4-4">4.4. External Symbols</a>
+<ul>
+<li><a href="#sec-4-4-1">4.4.1. External Functions</a>
+<ul>
+<li><a href="#sec-4-4-1-1">4.4.1.1. Inherited Function: <code>dataset-documentation</code></a>
+<ul>
+<li><a href="#sec-4-4-1-1-1">4.4.1.1.1. Syntax</a></li>
+<li><a href="#sec-4-4-1-1-2">4.4.1.1.2. Description</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-4-1-2">4.4.1.2. Inherited Function: <code>get-dataset</code></a>
+<ul>
+<li><a href="#sec-4-4-1-2-1">4.4.1.2.1. Syntax</a></li>
+<li><a href="#sec-4-4-1-2-2">4.4.1.2.2. Description</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-4-1-3">4.4.1.3. Inherited Function: <code>get-r-dataset-directory</code></a>
+<ul>
+<li><a href="#sec-4-4-1-3-1">4.4.1.3.1. Syntax</a></li>
+<li><a href="#sec-4-4-1-3-2">4.4.1.3.2. Description</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-4-1-4">4.4.1.4. Inherited Function: <code>inventory</code></a>
+<ul>
+<li><a href="#sec-4-4-1-4-1">4.4.1.4.1. Syntax</a></li>
+<li><a href="#sec-4-4-1-4-2">4.4.1.4.2. Description</a></li>
 </ul>
 </li>
 </ul>
@@ -103,6 +122,8 @@ Code can be obtained by one of the following methods:
 Or download zip archive at
 
     https://github.com/mmaul/clml.extras/archive/master.zip
+
+clml.extras requires clml which can be found at [<https://github.com/mmaul/clml>](https://github.com/mmaul/clml)
 
 ### Installing
 
@@ -254,6 +275,40 @@ export `C-c C-e` cord.
 Interoperability for CL-ANA plotting
 
 ## External Symbols
+
+# Package: `clml.cl-plplot`
+
+-   Uses:
+    common-lisp, clml.statistics, cl-plplot
+-   Used by:
+    common-lisp-user, clml.extras
+
+## Description
+
+This package provides a enhancements to cl-plplot and wrappers to clml-plplot functions.
+
+## External Symbols
+
+### External Functions
+
+---
+
+#### Inherited Function: `boxplot`
+
+##### Syntax
+
+    (boxplot series-vectors &key box-widths fill-colors)
+
+##### Description
+
+Constructs a box plots in a window and returns the window.
+
+-returns: <boxplot> object
+
+-   arguments: 
+    -series-vectors: <list of vector double float> Each vector is transformed into a box plot
+    -box-widths: <vector of floats> vector of box widths in units of x-axis, length must match number of elements in series vectors
+    -fill-colors: <vector of floats> vector of fill colors, length must match number of elements in series vectors
 
 # Package: `clml.r-datasets`
 

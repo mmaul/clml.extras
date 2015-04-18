@@ -1,0 +1,23 @@
+#+BEGIN_SRC
+EXTRAS> (defparameter dd (get-r-dataset-directory))
+DD
+EXTRAS> (inventory dd)
+Package                   Item                      Title                     
+------------------------- ------------------------- ------------------------- 
+datasets                  AirPassengers             Monthly Airline Passenger Numbers 1949-1960 
+...
+datasets                  cars                      Speed and Stopping Distances of Cars 
+EXTRAS> (defparameter ds (get-dataset dd "datasets" "cars"))
+EXTRAS> (head-points ds)
+#(#("1" "4" "2") #("2" "4" "10") #("3" "7" "4") #("4" "7" "22") #("5" "8" "16"))
+EXTRAS> (setq ds (get-dataset dd "datasets" "cars" :csv-type-spec '(integer integer integer)))
+#<UNSPECIALIZED-DATASET >
+DIMENSIONS:  | speed | dist
+TYPES:      UNKNOWN | UNKNOWN | UNKNOWN
+NUMBER OF DIMENSIONS: 3
+DATA POINTS: 50 POINTS
+EXTRAS> (head-points ds)
+#(#(1 4 2) #(2 4 10) #(3 7 4) #(4 7 22) #(5 8 16))
+#+END_SRC
+
+

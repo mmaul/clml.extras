@@ -1,2 +1,5 @@
 (defpackage :clml.extras
-  (:use :common-lisp :drakma :clml.utility.data :clml.hjs.read-data :clml.r-datasets :clml.ana.plotting))
+  (:use :cl
+        :clml.r-datasets
+        :clml.ana.plotting
+        :clml.cl-plplot))

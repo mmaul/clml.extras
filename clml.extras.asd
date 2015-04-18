@@ -20,6 +20,7 @@
     :depends-on (
                  :clml.ana
                  :clml.r-datasets
+                 :clml.cl-plplot
                  :clml.extras.package
                  )
     )
