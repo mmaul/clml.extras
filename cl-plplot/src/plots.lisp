@@ -113,3 +113,8 @@
     (new-box-plot nil (apply #'prep-boxplot-data series-vectors) :box-widths box-widths
                   :fill-colors fill-colors))
   )
+
+(defun scatter-plot (plots &key (x-label "x") (y-label "y") (title "title") (driver "xwin") )
+  (let* ((w (basic-window :x-label x-label :y-label y-label :title title)))
+    (dolist (p plots) (add-plot-to-window w p))
+    (render w driver)))
