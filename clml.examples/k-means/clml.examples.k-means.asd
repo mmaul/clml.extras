@@ -1,6 +1,8 @@
 ;;;; clml.examples.k-means.asd
-(format t "Please set *read-default-float-format* to double-float
-    (setq *read-default-float-format* 'double-float)")
+
+(eval-when (:compile-toplevel)
+  (when (not (eq *read-default-float-format* 'double-float))
+    (setq *read-default-float-format* 'double-float)))
 
   (asdf:defsystem #:clml.examples.k-means
     :serial t
@@ -9,4 +11,5 @@
     :license "MIT"
     :depends-on (#:clml.hjs #:clml.utility)
     :components ((:file "k-means")))
+
 
