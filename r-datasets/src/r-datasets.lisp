@@ -120,12 +120,12 @@ CL-USER> (head-points (get-dataset dd \"datasets\" \"BOD\" :csv-type-spec '(inte
 "
                   ))
 (defmethod inventory ((dataset-directory dataset-directory) &key (stream t))
-  (format stream "~{~25A ~}~%"
+  (format stream "~{~25A ~}~%~{~25A ~}~%~{~A~^~%~}"
           (coerce
            (subseq (map 'vector #'dimension-name
-                        (dataset-dimensions (slot-value dataset-directory 'data))) 0 3) 'list))
-  ( format stream "~{~25A ~}~%" (list "-------------------------" "-------------------------" "-------------------------"))
-  (loop
-     for row across (dataset-points (slot-value dataset-directory 'data))
-     do(format stream "~{~25A ~}~%" (coerce (subseq row 0 3) 'list)
-                   )))
+                        (dataset-dimensions (slot-value dataset-directory 'data))) 0 3) 'list)
+          (list "-------------------------" "-------------------------" "-------------------------")
+          (loop
+            for row across (dataset-points (slot-value dataset-directory 'data))
+            collect (format nil "~{~25A ~}~%" (coerce (subseq row 0 3) 'list)
+                            ))))
