@@ -89,6 +89,10 @@
   )
 
 
+
+
+
+#|
 (defun boxplot (series-vectors &key box-widths fill-colors)
   "Constructs a box plots in a window and returns the window.
 
@@ -113,6 +117,14 @@
     (new-box-plot nil (apply #'prep-boxplot-data series-vectors) :box-widths box-widths
                   :fill-colors fill-colors))
   )
+(defun boxplot (datasets &key (x-label "x") (y-label "y") (title "title") (driver "xwin") )
+  (let* (
+         (b (new-box-plot nil (apply #'prep-boxplot-data datasets) :box-widths #(.1 .1 .1)
+                          :fill-colors (vector :grey :grey :grey)))
+         (w (basic-window :x-label x-label :y-label y-label :title title)))
+    (add-plot-to-window w b)
+    (render w driver)))
+|#
 
 (defun scatter-plot (plots &key (x-label "x") (y-label "y") (title "title") (driver "xwin") )
   (let* ((w (basic-window :x-label x-label :y-label y-label :title title)))
