@@ -10,6 +10,6 @@
     :author "Mike Maul <mike.maul@gmail.com>"
     :license "MIT"
     :depends-on (#:clml.hjs #:clml.utility)
-    :components ((:file "k-means")))
+    :components ((:file "wine")))
 
 
